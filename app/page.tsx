@@ -2,6 +2,7 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import BannerSection from "@/components/banner/banner";
 import ProductCard from "@/components/product/product";
+import CardMobile from "@/components/card/cardmobile";
 
 export default function Home() {
   return (
@@ -19,6 +20,9 @@ export default function Home() {
         </h2>
       </div>
       <ProductCard />
+      <div className="my-16 p-9">
+        <CardMobile />
+      </div>
     </section>
   );
 }
