@@ -1,3 +1,4 @@
+"use client";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
@@ -8,6 +9,7 @@ import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import FooterPage from "@/components/footer/footer";
 import CardNewsletter from "@/components/card/cardnewsletter";
+import { RecoilRoot } from "recoil";
 
 export const metadata: Metadata = {
   title: {
@@ -40,16 +42,18 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="">{children}</main>
-            <div className="my-32">
-              <CardNewsletter />
+        <RecoilRoot>
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <div className="relative flex flex-col h-screen">
+              <Navbar />
+              <main className="">{children}</main>
+              <div className="my-32">
+                <CardNewsletter />
+              </div>
+              <FooterPage />
             </div>
-            <FooterPage />
-          </div>
-        </Providers>
+          </Providers>
+        </RecoilRoot>
       </body>
     </html>
   );
