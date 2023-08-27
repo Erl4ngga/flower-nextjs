@@ -10,6 +10,7 @@ import clsx from "clsx";
 import FooterPage from "@/components/footer/footer";
 import CardNewsletter from "@/components/card/cardnewsletter";
 import { RecoilRoot } from "recoil";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: {
@@ -43,6 +44,7 @@ export default function RootLayout({
         )}
       >
         <RecoilRoot>
+          <Toaster position="top-right" reverseOrder={false} />
           <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
             <div className="relative flex flex-col h-screen">
               <Navbar />
