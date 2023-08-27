@@ -10,18 +10,46 @@
     "id": 2,
     "name": "Shoes",
     "price": 99,
-    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
     "quantity": 1
   },
   {
     "id": 3,
     "name": "Football",
     "price": 299,
-    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
     "quantity": 1
   },
   {
     "id": 4,
+    "name": "Iphone 14 pro",
+    "price": 799,
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
+    "quantity": 1
+  },
+  {
+    "id": 5,
+    "name": "Iphone 14 pro",
+    "price": 799,
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
+    "quantity": 1
+  },
+  {
+    "id": 6,
+    "name": "Iphone 14 pro",
+    "price": 799,
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+    "quantity": 1
+  },
+  {
+    "id": 7,
+    "name": "Iphone 14 pro",
+    "price": 799,
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+    "quantity": 1
+  },
+  {
+    "id": 8,
     "name": "Iphone 14 pro",
     "price": 799,
     "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
