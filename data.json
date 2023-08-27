@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Mac Book Air",
+    "price": 999,
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    "quantity": 1
+  },
+  {
+    "id": 2,
+    "name": "Shoes",
+    "price": 99,
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    "quantity": 1
+  },
+  {
+    "id": 3,
+    "name": "Football",
+    "price": 299,
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    "quantity": 1
+  },
+  {
+    "id": 4,
+    "name": "Iphone 14 pro",
+    "price": 799,
+    "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    "quantity": 1
+  }
+]
