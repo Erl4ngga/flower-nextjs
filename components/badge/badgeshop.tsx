@@ -1,6 +1,10 @@
+"use client";
 import * as React from "react";
-
+import { useRecoilState } from "recoil";
+import { productListState } from "@/atoms/cartState";
 export default function CustomizedBadges() {
+  const [cartItem] = useRecoilState(productListState);
+
   return (
     <button
       type="button"
@@ -17,7 +21,7 @@ export default function CustomizedBadges() {
       </svg>
       <span className="sr-only">Notifications</span>
       <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
-        20
+        {cartItem.length}
       </div>
     </button>
   );
