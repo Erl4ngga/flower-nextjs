@@ -3,7 +3,7 @@ import { title, subtitle } from "@/components/primitives";
 import BannerSection from "@/components/banner/banner";
 import ProductCard from "@/components/product/product";
 import CardMobile from "@/components/card/cardmobile";
-
+import data from "@/data.json";
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center">
@@ -19,8 +19,12 @@ export default function Home() {
           Beautiful, fast and modern React UI library.
         </h2>
       </div>
-      <ProductCard />
-      <div className="my-16 p-9">
+      <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+        {data.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
+      </div>
+      <div className="my-16 p-">
         <CardMobile />
       </div>
     </section>
