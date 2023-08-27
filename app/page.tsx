@@ -1,14 +1,15 @@
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import BannerSection from "@/components/banner/banner";
-import ProductCard from "@/components/product/product";
+import ProductMiniCard from "@/components/product/productMini";
 import CardMobile from "@/components/card/cardmobile";
 import data from "@/data.json";
+import CardStats from "@/components/card/stats";
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center">
       <BannerSection />
-      <div className="inline-block max-w-lg text-center justify-center">
+      <div className="inline-block max-w-lg text-center justify-center my-20">
         <h1 className={title()}>Make&nbsp;</h1>
         <h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
         <br />
@@ -21,10 +22,13 @@ export default function Home() {
       </div>
       <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
         {data.map((product, index) => (
-          <ProductCard key={index} product={product} />
+          <ProductMiniCard key={index} product={product} />
         ))}
       </div>
-      <div className="my-16 p-">
+      <div className="py-20">
+        <CardStats />
+      </div>
+      <div className="my-16 py-20">
         <CardMobile />
       </div>
     </section>
