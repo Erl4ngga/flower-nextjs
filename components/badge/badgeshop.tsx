@@ -1,9 +1,9 @@
 "use client";
 import * as React from "react";
 import { useRecoilState } from "recoil";
-import { productListState } from "@/atoms/cartState";
+import { cartAtom } from "@/atoms/cartState";
 export default function CustomizedBadges() {
-  const [cartItem] = useRecoilState(productListState);
+  const [cartItem] = useRecoilState(cartAtom);
 
   return (
     <button
