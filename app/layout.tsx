@@ -5,7 +5,6 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import FooterPage from "@/components/footer/footer";
 import CardNewsletter from "@/components/card/cardnewsletter";
