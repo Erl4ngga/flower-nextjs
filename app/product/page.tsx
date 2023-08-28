@@ -1,5 +1,4 @@
 import ProductCard from "@/components/product/product";
-import CardMobile from "@/components/card/cardmobile";
 import data from "@/data.json";
 export default function PricingPage() {
   return (
@@ -10,7 +9,7 @@ export default function PricingPage() {
         </h2>
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {data.map((product, index) => (
-            <ProductCard product={product} />
+            <ProductCard key="" product={product} />
           ))}
         </div>
       </div>
