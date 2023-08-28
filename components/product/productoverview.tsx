@@ -66,7 +66,7 @@ export default function ProductOverView() {
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
   return (
-    <div className="bg-white">
+    <div className="w-full">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol
