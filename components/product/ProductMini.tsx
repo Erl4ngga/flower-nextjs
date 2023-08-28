@@ -4,6 +4,7 @@ import { Button, Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { useRecoilState } from "recoil";
 import { cartAtom } from "@/atoms/cartState";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 interface Product {
   id: number;
   name: string;
@@ -27,15 +28,17 @@ export default function ProductMiniCard({ product }: ProductCardProps) {
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
       setCart(newCart);
+      toast(`${product.name} Out of stock, you can add other products.`);
     } else {
       // If not, add the product with quantity one
       setCart([...cart, { ...product, quantity: 1 }]);
+      toast(`${product.name} added to cart`);
     }
-    toast(`${product.name} added to cart`);
   };
+
   return (
     <div>
-      <Card className="mx-5 my-5 " shadow="sm">
+      <Card key={product.id} className="mx-5 my-5 " shadow="sm">
         <CardBody className="overflow-visible p-0 ">
           <Image
             shadow="sm"
