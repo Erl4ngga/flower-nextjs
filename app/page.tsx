@@ -1,4 +1,3 @@
-import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import BannerSection from "@/components/banner/banner";
 import ProductMiniCard from "@/components/product/productMini";
@@ -22,7 +21,7 @@ export default function Home() {
       </div>
       <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
         {data.map((product, index) => (
-          <ProductMiniCard key={index} product={product} />
+          <ProductMiniCard key="" product={product} />
         ))}
       </div>
       <div className="py-20">
