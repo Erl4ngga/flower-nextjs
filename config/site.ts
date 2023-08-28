@@ -39,8 +39,8 @@ export const siteConfig = {
       href: "/product",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Checkout",
+      href: "/checkout",
     },
     {
       label: "About",
