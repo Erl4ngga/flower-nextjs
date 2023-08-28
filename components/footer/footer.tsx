@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site";
 export default function FooterPage() {
   return (
     <footer className="bg-white dark:bg-gray-900">
@@ -8,26 +9,13 @@ export default function FooterPage() {
               Company
             </h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
-              <li className="mb-4">
-                <a href="#" className=" hover:underline">
-                  About
-                </a>
-              </li>
-              <li className="mb-4">
-                <a href="#" className="hover:underline">
-                  Careers
-                </a>
-              </li>
-              <li className="mb-4">
-                <a href="#" className="hover:underline">
-                  Brand Center
-                </a>
-              </li>
-              <li className="mb-4">
-                <a href="#" className="hover:underline">
-                  Blog
-                </a>
-              </li>
+              {siteConfig.navMenuItems.map((item, index) => (
+                <li className="mb-4" key="">
+                  <a href={item.href} className=" hover:underline">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
