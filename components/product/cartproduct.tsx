@@ -3,6 +3,13 @@ import { useRecoilValue, useRecoilState } from "recoil";
 import { cartAtom } from "@/atoms/cartState";
 import toast from "react-hot-toast";
 export default function CartProduct() {
+  interface Product {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+    quantity: number;
+  }
   const cart = useRecoilValue(cartAtom);
   const [addcart, setCart] = useRecoilState(cartAtom);
   const Price = () => {
@@ -15,6 +22,41 @@ export default function CartProduct() {
     const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
     setCart(updatedCart);
     toast.success(` remove to cart`);
+  };
+  const reduceFromCart = (item: { id: number }) => {
+    // Cek apakah item ada di dalam cart
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      // Cek apakah quantity item lebih dari 1
+      if (existingItem.quantity > 1) {
+        // Jika ya, kurangi quantity-nya
+        const updatedCart = cart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        );
+        setCart(updatedCart);
+      } else {
+        // Jika tidak, hapus item dari cart
+        removeFromCart(item);
+      }
+    }
+  };
+  const addToCart = (item: Product) => {
+    // Cek apakah item sudah ada di dalam cart
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      // Jika ya, tambahkan quantity-nya
+      const updatedCart = cart.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      );
+      setCart(updatedCart);
+    } else {
+      // Jika tidak, masukkan item ke dalam cart dengan quantity 1
+      setCart([...cart, { ...item, quantity: 1 }]);
+    }
   };
   return (
     <div className="h-screen ">
@@ -41,18 +83,17 @@ export default function CartProduct() {
                 <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                   <div className="flex items-center border-gray-100">
                     <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
-                      {" "}
-                      -{" "}
+                      <button onClick={() => reduceFromCart(product)}>-</button>
                     </span>
                     <input
                       className="h-8 w-8 border bg-white text-center text-xs outline-none"
                       type="number"
-                      value="2"
+                      value={product.quantity}
                       min="1"
+                      readOnly
                     />
                     <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
-                      {" "}
-                      +{" "}
+                      <button onClick={() => addToCart(product)}>+</button>
                     </span>
                   </div>
                   <div className="flex items-center space-x-4">
