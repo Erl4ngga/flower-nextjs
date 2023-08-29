@@ -1,17 +1,20 @@
 "use client";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 import { cartAtom } from "@/atoms/cartState";
-
+import toast from "react-hot-toast";
 export default function CartProduct() {
   const cart = useRecoilValue(cartAtom);
-  const CartPrice = cart.reduce(
-    (total: any, product: { price: any }) => total + product.price,
-    0
-  );
+  const [addcart, setCart] = useRecoilState(cartAtom);
   const Price = () => {
     let total = 0;
     cart.forEach((item) => (total += item.price * item.quantity));
     return total;
+  };
+  const removeFromCart = (item: { id: number }) => {
+    // Filter item yang tidak sama dengan item yang ingin dihapus
+    const updatedCart = cart.filter((cartItem) => cartItem.id !== item.id);
+    setCart(updatedCart);
+    toast.success(` remove to cart`);
   };
   return (
     <div className="h-screen ">
@@ -61,6 +64,7 @@ export default function CartProduct() {
                       strokeLinejoin="inherit"
                       stroke="currentColor"
                       className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+                      onClick={() => removeFromCart(product)}
                     >
                       <path
                         stroke-linecap="round"
