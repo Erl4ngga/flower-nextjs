@@ -4,10 +4,15 @@ import { cartAtom } from "@/atoms/cartState";
 
 export default function CartProduct() {
   const cart = useRecoilValue(cartAtom);
-  const totalPrice = cart.reduce(
+  const CartPrice = cart.reduce(
     (total: any, product: { price: any }) => total + product.price,
     0
   );
+  const Price = () => {
+    let total = 0;
+    cart.forEach((item) => (total += item.price * item.quantity));
+    return total;
+  };
   return (
     <div className="h-screen ">
       <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
@@ -48,7 +53,7 @@ export default function CartProduct() {
                     </span>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <p className="text-sm">259.000 ₭</p>
+                    <p className="text-sm">{product.price}</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -70,19 +75,11 @@ export default function CartProduct() {
           ))}
         </div>
         <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
-          <div className="mb-2 flex justify-between">
-            <p className="text-gray-700">Subtotal</p>
-            <p className="text-gray-700">$129.99</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="text-gray-700">Shipping</p>
-            <p className="text-gray-700">$4.99</p>
-          </div>
           <hr className="my-4" />
           <div className="flex justify-between">
             <p className="text-lg font-bold">Total</p>
             <div className="">
-              <p className="mb-1 text-lg font-bold">$134.98 USD</p>
+              <p className="mb-1 text-lg font-bold">${Price()}</p>
               <p className="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
