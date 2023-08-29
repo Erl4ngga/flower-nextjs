@@ -1,4 +1,5 @@
 import { title, subtitle } from "@/components/primitives";
+import { Suspense } from "react";
 import BannerSection from "@/components/banner/banner";
 import ProductMiniCard from "@/components/product/productMini";
 import CardMobile from "@/components/card/cardmobile";
@@ -21,7 +22,7 @@ export default function Home() {
       </div>
       <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
         {data.map((product, index) => (
-          <ProductMiniCard key="" product={product} />
+          <ProductMiniCard key={index} product={product} />
         ))}
       </div>
       <div className="py-20">
